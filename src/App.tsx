@@ -1,6 +1,8 @@
-import "./App.css";
+import "./App.scss";
+import Login from "./Login";
 
 function App() {
+
 
   return (
     <>
@@ -10,6 +12,7 @@ function App() {
           For linux greeting screen
         </p>
       </div>
+      <Login />
       <p className="read-the-docs">
         Hacker Theme for linux light-dm 
       </p>
