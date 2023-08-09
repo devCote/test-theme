@@ -1,14 +1,46 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
   text-align: center;
 }
 
-.card {
-  padding: 2em;
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-.read-the-docs {
-  color: #888;
+.matrix-container {
+  background: none; /* Remove the background */
+  position: fixed; /* Set the position to fixed to cover the whole viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 
+.content-container {
+  background: rgba(0, 20, 0, 0.4);
+  backdrop-filter: blur(10px); /* Blur effect */
+  padding: 50px;
+  width: 60vw;
+  text-align: center;
+  border: .5px solid #00ff00;
+  border-radius: 30px;
+  animation: glowingBorder 6s ease-in-out infinite;
+}
+
+@keyframes glowingBorder {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+  }
+  25% {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+  }
+  75% {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+  }
+}
