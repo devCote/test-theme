@@ -13,10 +13,13 @@ export default class Matrix {
   private _columns: number;
   private _speed: number;
   private _frameCount: number;
+  private _bold: boolean;
+  private _glow: boolean;
+  private _glowColor: string;
 
   constructor(canvas: any, options: any = {}) {
     const {
-      chars = "10",
+      chars = [1,0],
       font_size = 16,
       width = window.innerWidth,
       height = window.innerHeight,
@@ -24,7 +27,10 @@ export default class Matrix {
       color = "#0F0",
       colums = 0,
       speed = 4,
-      background = "rgba(0, 0, 0, 0.05)",
+      bold = true,
+      background = "rgba(10, 29, 10, 0.5)",
+      glowColor = "#0F0",
+      glow = true,
     } = options;
 
     this._canvas = canvas;
@@ -41,6 +47,9 @@ export default class Matrix {
     this._columns = colums;
     this._speed = speed;
     this._frameCount = 0;
+    this._bold = bold;
+    this._glow = glow;
+    this._glowColor = glowColor;
     this.resize(width, height);
   }
 
@@ -62,7 +71,23 @@ export default class Matrix {
   }
 
   render_char(t: string, i: number, n: number): void {
+    if (this._bold) {
+      this._ctx.font = "bold " + this._font_size + "px " + this._font;
+    } else {
+      this._ctx.font = this._font_size + "px " + this._font;
+    }
+
+    if (this._glow) {
+      this._ctx.shadowBlur = 10; // Set the shadow blur radius
+      this._ctx.shadowColor = this._glowColor; // Set the shadow color
+    }
+
     this._ctx.fillText(t, i, n);
+
+    if (this._glow) {
+      this._ctx.shadowBlur = 0;
+      this._ctx.shadowColor = 'transparent';
+    }
   }
 
   start(): void {
