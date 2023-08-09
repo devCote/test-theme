@@ -28,7 +28,7 @@ export default class Matrix {
       colums = 0,
       speed = 4,
       bold = true,
-      background = "rgba(10, 29, 10, 0.5)",
+      background = "rgba(0, 0, 0, 0.5)",
       glowColor = "#0F0",
       glow = true,
     } = options;

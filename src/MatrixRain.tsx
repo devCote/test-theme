@@ -13,6 +13,7 @@ function MatrixRainEffect() {
       color: '#0F0',
       columns: 0,
       speed: 4,
+      background: 'rgba(27, 27, 27, 0.05)',
     };
 
     const matrix = new Matrix(canvasRef.current, matrixOptions);
