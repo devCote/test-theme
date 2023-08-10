@@ -6,7 +6,7 @@ function MatrixRainEffect() {
 
   useEffect(() => {
     const matrixOptions = {
-      font_size: 16,
+      font_size: 22,
       width: window.innerWidth,
       height: window.innerHeight,
       font: 'monospace',
