@@ -1,5 +1,8 @@
-#root {
-  text-align: center;
+@font-face {
+  font-family: 'june';
+  src: url('./assets/june.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .app-container {
@@ -10,37 +13,102 @@
 }
 
 .matrix-container {
-  background: none; /* Remove the background */
-  position: fixed; /* Set the position to fixed to cover the whole viewport */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
   z-index: -1;
 }
 
 .content-container {
-  background: rgba(0, 20, 0, 0.4);
+  background: rgba(0, 20, 0, 0.3);
   backdrop-filter: blur(10px); /* Blur effect */
   padding: 50px;
-  width: 60vw;
+  width: 30vw;
   text-align: center;
-  border: .5px solid #00ff00;
+  border: 0.5px solid #0f0;
   border-radius: 30px;
-  animation: glowingBorder 6s ease-in-out infinite;
+  animation: glowingBorder 4s ease-in-out infinite;
+
+  .user {
+    color: #4a4;
+    font-weight: bold;
+    font-family: 'june';
+    letter-spacing: 2px;
+    animation: glowingText 2s ease-in-out infinite;
+    text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    font-size: 2.6em;
+  }
+
+  .input-container {
+    position: relative;
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+    input {
+      margin-top: 10px;
+      width: 50%;
+      padding: 10px;
+      border: 1px solid #585;
+      border-radius: 12px;
+      font-size: 1em;
+      color: #595;
+      box-shadow: -1px -1px 0 #0f0, 1px -1px 0 #0f0, -1px 1px 0 #0f0, 1px 1px 0 #0f0;
+      font-family: 'june';
+      font-size: 1.2em;
+
+      &:focus {
+        outline: none;
+        &::placeholder {
+          color: transparent;
+        }
+      }
+    }
+  }
+
+  .button {
+    font-family: 'june';
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #191;
+    color: #f9d9d9;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    &:hover {
+      background-color: #1b1;
+      transform: scale(1.05);
+    }
+  }
 }
 
+
 @keyframes glowingBorder {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+  0%,
+  100% {
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.8);
   }
   25% {
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
   }
   50% {
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.8);
   }
   75% {
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+  }
+}
+
+@keyframes glowingText {
+  0%,
+  100% {
+    text-shadow: 10px 5px 15px rgba(0, 255, 0, 0.4);
+  }
+  25% {
+    text-shadow: 10px 5px 15px rgba(0, 255, 0, 0.5);
+  }
+  50% {
+    text-shadow: 10px 5px 15px rgba(0, 255, 0, 0.6);
+  }
+  75% {
+    text-shadow: 10px 5px 15px rgba(0, 255, 0, 0.5);
   }
 }
