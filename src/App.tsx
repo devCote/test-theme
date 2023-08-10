@@ -7,13 +7,12 @@ function App() {
       <div className="matrix-container">
          <MatrixRainEffect />
       </div>
-      <div className="content-container">
-        <h1 className="user">devcote</h1>
-        <div className="input-container">
+      <form>
+        <div className="content-container">
+          <h1 className="user">devcote</h1>
           <input type="password" placeholder="Enter password" />
         </div>
-        <button className="button">Login</button>
-      </div>
+      </form>
     </div>
   );
 }
